@@ -4,6 +4,10 @@
   "name": "pushserbia-fe",
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/api"
+    },
+    {
       "source": "/(.*)",
       "destination": "/api"
     }
