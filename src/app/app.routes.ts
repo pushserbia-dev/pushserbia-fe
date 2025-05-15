@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
+import { LandingComponent } from './features/landing/landing.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./features/landing/landing.component').then(
-        (m) => m.LandingComponent,
-      ),
+    component: LandingComponent,
   },
   {
     path: 'placanja',
     loadChildren: () =>
-      import('./features/payments/payments.routes').then((m) => m.paymentsRoutes),
+      import('./features/payments/payments.routes').then(
+        (m) => m.paymentsRoutes,
+      ),
   },
   {
     path: 'dokumentacija',
