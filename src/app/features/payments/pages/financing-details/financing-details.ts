@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SeoService } from '../../../../core/seo/seo.service';
+import { SeoManager } from '../../../../core/seo/seo-manager';
 
 @Component({
   selector: 'app-financing-details',
@@ -10,8 +10,10 @@ import { SeoService } from '../../../../core/seo/seo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FinancingDetails {
+  private readonly seo = inject(SeoManager);
+
   constructor() {
-    inject(SeoService).update({
+    this.seo.update({
       title: 'Podrži nas',
       description:
         'Podrži Push Serbia zajednicu — jednokratna donacija ili mesečna pretplata za razvoj open-source projekata.',

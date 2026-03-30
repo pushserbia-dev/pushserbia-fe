@@ -1,17 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../../core/auth/auth.service';
+import { AuthClient } from '../../../core/auth/auth-client';
 import { GravatarModule } from 'ngx-gravatar';
 
 @Component({
   selector: 'app-user-widget',
   imports: [RouterLink, GravatarModule],
   templateUrl: './user-widget.html',
-  styleUrl: './user-widget.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserWidget {
-  private authService = inject(AuthService);
+  private authService = inject(AuthClient);
 
   $userData = this.authService.$userData;
 

@@ -7,7 +7,7 @@ import { LandingTestimonials } from './sections/landing-testimonials/landing-tes
 import { LandingFaq } from './sections/landing-faq/landing-faq';
 import { LandingCta } from './sections/landing-cta/landing-cta';
 import { BasicLayout } from '../../shared/layout/landing-layout/basic-layout';
-import { SeoService } from '../../core/seo/seo.service';
+import { SeoManager } from '../../core/seo/seo-manager';
 
 @Component({
   selector: 'app-landing',
@@ -22,12 +22,13 @@ import { SeoService } from '../../core/seo/seo.service';
     BasicLayout,
   ],
   templateUrl: './landing.html',
-  styleUrl: './landing.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Landing {
+  private readonly seo = inject(SeoManager);
+
   constructor() {
-    inject(SeoService).update({
+    this.seo.update({
       url: 'https://pushserbia.com',
     });
   }

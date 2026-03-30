@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
-import { AuthService } from '../../../../core/auth/auth.service';
+import { AuthClient } from '../../../../core/auth/auth-client';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notifications-list-page',
   imports: [],
   templateUrl: './notifications-list-page.html',
-  styleUrl: './notifications-list-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationsListPage {
-  private readonly authService = inject(AuthService);
+  private readonly authService = inject(AuthClient);
   private readonly router = inject(Router);
 
   constructor() {

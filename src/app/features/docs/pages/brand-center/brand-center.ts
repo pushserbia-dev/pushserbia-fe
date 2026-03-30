@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SeoService } from '../../../../core/seo/seo.service';
+import { SeoManager } from '../../../../core/seo/seo-manager';
 
 @Component({
   selector: 'app-brand-center',
@@ -10,8 +10,10 @@ import { SeoService } from '../../../../core/seo/seo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrandCenter {
+  private readonly seo = inject(SeoManager);
+
   constructor() {
-    inject(SeoService).update({
+    this.seo.update({
       title: 'Brend centar',
       description:
         'Push Serbia brend resursi — logotip, boje, tipografija i smernice za korišćenje.',

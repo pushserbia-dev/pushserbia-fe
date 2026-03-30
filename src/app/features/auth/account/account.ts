@@ -1,21 +1,20 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { AuthService } from '../../../core/auth/auth.service';
+import { AuthClient } from '../../../core/auth/auth-client';
 import { first } from 'rxjs';
 
 @Component({
   selector: 'app-account',
   imports: [],
   templateUrl: './account.html',
-  styleUrl: './account.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Account implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  private authService = inject(AuthService);
+  private authService = inject(AuthClient);
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) {

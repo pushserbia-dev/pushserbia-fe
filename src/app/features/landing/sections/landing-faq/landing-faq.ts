@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 interface SearchOption {
   displayText: string; // Full word to display
@@ -10,9 +11,8 @@ interface SearchOption {
 
 @Component({
   selector: 'app-landing-faq',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './landing-faq.html',
-  styleUrl: './landing-faq.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingFaq implements OnInit {

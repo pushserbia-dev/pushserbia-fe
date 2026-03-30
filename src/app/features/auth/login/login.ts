@@ -2,18 +2,17 @@ import { ChangeDetectionStrategy, Component, inject, OnInit, PLATFORM_ID } from 
 import { environment } from '../../../../environments/environment';
 import { RouterLink } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { SeoService } from '../../../core/seo/seo.service';
+import { SeoManager } from '../../../core/seo/seo-manager';
 
 @Component({
   selector: 'app-login',
   imports: [RouterLink],
   templateUrl: './login.html',
-  styleUrl: './login.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Login implements OnInit {
   private platformId = inject(PLATFORM_ID);
-  private seo = inject(SeoService);
+  private seo = inject(SeoManager);
 
   linkedinUrl!: string;
 
